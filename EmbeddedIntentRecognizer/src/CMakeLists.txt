@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 project(IntentRecognizer)
 
-add_executable(console_application Program.cpp IntentRecognizer.cpp Console.cpp)
+add_executable(IntentRecognizer Program.cpp IntentRecognizer.cpp Console.cpp)
 
-target_include_directories(console_application PRIVATE ${CMAKE_SOURCE_DIR}/src)
+target_include_directories(IntentRecognizer PRIVATE ${CMAKE_SOURCE_DIR}/src)
