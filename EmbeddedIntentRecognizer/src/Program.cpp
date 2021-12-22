@@ -15,16 +15,16 @@ int main(){
     ConsoleIntentRecognizer::IntentRecognizer intentRecognizer;
 
     while(!exitCondition){
-        Utils::Console::Get()->ClearConsole();
-        Utils::Console::Get()->DisplayMessage("Input: ");
-        const auto userInput = Utils::Console::Get()->ReadUserInput();
+        Utils::Console::Get()->DisplayMessage("Input:");
+        const auto userInput = ToLower(Utils::Console::Get()->ReadUserInput());
 
-        if("exit" == ToLower(userInput)) {
+        if("exit" == userInput) {
             exitCondition = true;
         }
-        else {
+        else if (0 < userInput.length()) {
             const auto result = intentRecognizer.Process(userInput);
             Utils::Console::Get()->DisplayMessage(result);
+            Utils::Console::Get()->DisplayBlankLine();
         }
     }
     return 0;

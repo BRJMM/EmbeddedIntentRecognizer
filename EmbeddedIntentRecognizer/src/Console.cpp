@@ -15,16 +15,20 @@ Console* Console::Get() {
 
 Console::~Console() = default;
 
-void Console::DisplayMessage(const std::string& message) {
-    printf("%s\n", message.c_str());
+void Console::DisplayMessage(const std::string& message) const {
+    printf("\033[3;47;35m%s\033[0m\n", message.c_str());
 }
 
-std::string Console::ReadUserInput() {
+void Console::DisplayBlankLine() const {
+    printf("\n");
+}
+
+std::string Console::ReadUserInput() const {
     std::string userInput;
     std::getline(std::cin, userInput);
     return userInput;
 }
 
-void Console::ClearConsole() {
+void Console::ClearConsole() const {
     printf("\033c");
 }

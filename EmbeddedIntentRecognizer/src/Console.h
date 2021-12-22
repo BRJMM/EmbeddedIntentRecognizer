@@ -10,9 +10,10 @@ public:
     static Console* Get();
     ~Console();
 
-    void DisplayMessage(const std::string& message);
-    std::string ReadUserInput();
-    void ClearConsole();
+    void DisplayMessage(const std::string& message) const;
+    void DisplayBlankLine() const;
+    std::string ReadUserInput() const;
+    void ClearConsole() const;
 
 private:
     Console() {}
