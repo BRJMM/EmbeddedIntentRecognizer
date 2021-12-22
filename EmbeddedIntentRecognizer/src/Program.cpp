@@ -1,14 +1,8 @@
 #include <string>
-#include <algorithm>
 
+#include "Utils.h"
 #include "Console.h"
 #include "IntentRecognizer.h"
-
-std::string ToLower(const std::string& input){
-    std::string copy = input;
-    std::for_each(copy.begin(), copy.end(), [](char & c){c = ::tolower(c);});
-    return copy;
-}
 
 int main(){
     auto exitCondition = false;
@@ -16,7 +10,7 @@ int main(){
 
     while(!exitCondition){
         Utils::Console::Get()->DisplayMessage("Input:");
-        const auto userInput = ToLower(Utils::Console::Get()->ReadUserInput());
+        const auto userInput = Utils::Utils::ToLower(Utils::Console::Get()->ReadUserInput());
 
         if("exit" == userInput) {
             exitCondition = true;
